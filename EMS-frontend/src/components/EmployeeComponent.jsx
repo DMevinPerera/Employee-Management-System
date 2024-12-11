@@ -64,7 +64,7 @@ const EmployeeComponent = () => {
           console.log(response.data);
           navigator('/employees')
         }).catch(error => {
-          console.error(error);
+          console.error(error); 
         })
       }
 
