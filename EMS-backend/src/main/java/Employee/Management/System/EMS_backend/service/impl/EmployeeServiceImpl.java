@@ -2,6 +2,7 @@ package Employee.Management.System.EMS_backend.service;
 
 import Employee.Management.System.EMS_backend.dto.EmployeeDto;
 import Employee.Management.System.EMS_backend.entity.Employee;
+import Employee.Management.System.EMS_backend.exception.ResourceNotFoundException;
 import Employee.Management.System.EMS_backend.mapper.EmployeeMapper;
 import Employee.Management.System.EMS_backend.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDto getEmployeeById(Long employeeId) {
-        
-
-        return null;
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Employee is not exist with given id :" + employeeId));
+        return EmployeeMapper.maptoEmployeeDto(employee);
     }
 }
