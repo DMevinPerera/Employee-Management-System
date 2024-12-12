@@ -5,7 +5,7 @@ import Employee.Management.System.EMS_backend.entity.Employee;
 
 public class EmployeeMapper {
 
-    public static EmployeeDto maptoEmployeeDto(Employee employee){
+    public static EmployeeDto maptoEmployeeDto(Employee employee) {
         return new EmployeeDto(
                 employee.getId(),
                 employee.getFirstName(),
@@ -14,12 +14,10 @@ public class EmployeeMapper {
         );
     }
 
-    public static Employee mapToEmployee(EmployeeDto employeeDto){
-        return new Employee(
-                employeeDto.getId(),
-                employeeDto.getFirstName(),
-                employeeDto.getLastName(),
-                employeeDto.getEmail()
-        );
+    public static Employee mapToEmployee(EmployeeDto employeeDto) {
+        Employee employee = new Employee();
+
+        employee.setFirstName();
+
     }
 }

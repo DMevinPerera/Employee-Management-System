@@ -19,55 +19,65 @@ public class Employee {
     @Column(name = "email_id", nullable = false, unique = true)
     private String email;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
+
     // No-argument constructor
     public Employee() {
     }
 
     // All-arguments constructor
-    public Employee(Long id, String firstName, String lastName, String email) {
+    public Employee(Long id, String firstName, String lastName, String email, Department department) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.department = department;
     }
 
-    // Getter for id
+    // Getter and setter for id
     public Long getId() {
         return id;
     }
 
-    // Setter for id
     public void setId(Long id) {
         this.id = id;
     }
 
-    // Getter for firstName
+    // Getter and setter for firstName
     public String getFirstName() {
         return firstName;
     }
 
-    // Setter for firstName
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    // Getter for lastName
+    // Getter and setter for lastName
     public String getLastName() {
         return lastName;
     }
 
-    // Setter for lastName
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    // Getter for email
+    // Getter and setter for email
     public String getEmail() {
         return email;
     }
 
-    // Setter for email
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    // Getter and setter for department
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
